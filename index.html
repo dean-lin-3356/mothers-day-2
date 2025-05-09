@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>母親節快樂</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #fff1f3, #ffe5ec);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #b20032;
+      font-size: 2.8rem;
+      font-weight: bold;
+      animation: fadeIn 2s ease-out;
+      text-shadow: 2px 2px 4px #fff;
+      max-width: 90%;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #444;
+      margin-top: 1rem;
+      max-width: 600px;
+      animation: fadeIn 2.5s ease-out;
+      background: rgba(255,255,255,0.65);
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .petal {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #ff5c8a, #b2004c);
+      border-radius: 60% 60% 60% 60% / 80% 80% 20% 20%;
+      opacity: 0.85;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg) scale(0.8);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>麻麻～妳是世界上最可愛的超人！今天妳最大，愛妳呦～💕</h1>
+  <p>妳是我一輩子的避風港。母親節快樂！</p>
+
+  <script>
+    const total = 30;
+    for (let i = 0; i < total; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.top = -Math.random() * 100 + 'px';
+
+      const duration = 5 + Math.random() * 5;
+      const delay = Math.random() * 5;
+      petal.style.animationDuration = `${duration}s`;
+      petal.style.animationDelay = `${delay}s`;
+
+      const scale = 0.6 + Math.random() * 0.8;
+      petal.style.transform = `scale(${scale})`;
+
+      document.body.appendChild(petal);
+    }
+  </script>
+
+</body>
+</html>
